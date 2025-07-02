@@ -5,14 +5,14 @@ public:
         deque<int> dq;
         //Result vector to return the array of maximum elements
         vector<int> res;
-        //Analyze the first window
+        //Step 1: Analyze the first window
         for(int i = 0; i < k; i++){
             while(dq.size() > 0 && nums[dq.back()] <= nums[i])
                 dq.pop_back();
             dq.push_back(i);
         }
 
-        //Analyze remaining part
+        //Step 2: Analyze remaining part
         for(int i = k; i < nums.size(); i++){
             //push the maximum of previous window in the resultant vector
             res.push_back(nums[dq.front()]);
